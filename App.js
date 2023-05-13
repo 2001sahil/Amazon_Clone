@@ -8,9 +8,9 @@ app.use(cors())
 // static files////////////////////
 app.use(express.static(path.join(__dirname,'./amazon-clone/build')))
 
-// app.get("/", (req,res)=>{
-//     res.sendFile(path.join(__dirname,'./amazon-clone/build/index.html'))
-// })
+app.get("/", (req,res)=>{
+    res.sendFile(path.join(__dirname,'./amazon-clone/build/index.html'))
+})
 app.get('/',(req,res)=>{
     res.send("App is live")
 })
