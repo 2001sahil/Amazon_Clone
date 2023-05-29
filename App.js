@@ -5,25 +5,25 @@ const path=require('path')
 const port=8000
 app.use(express.json())
 app.use(cors())
-// static files////////////////////
-// app.use(express.static(path.join(__dirname, 'build')));
+const fetch = require('node-fetch');
 
-// app.get('/*', function(req,res) {
-// 		res.sendFile(path.join(__dirname, 'build', 'index.html'));
-// });
-// app.use(express.static(path.join(__dirname,'./amazon-clone/build')))
 
-// app.get("/", (req,res)=>{
-//     res.sendFile(path.join(__dirname,'./amazon-clone/build/index.html'))
-// })
+
 app.get('/',(req,res)=>{
     res.send("App is live")
 })
-// app.get('/favicon.ico', (req, res) => {
-//     // Use actual relative path to your .ico file here
-//     res.sendFile(path.resolve(__dirname, './amazon-clone/build/favicon.ico'));
-//   });
 
+app.use(express.static(path.join(__dirname, 'public')));
+// Serves static files for all routes
+app.get('*', async (req, res) => {
+    try {
+      const response = await fetch('https://raw.githubusercontent.com/2001sahil/Deploy-amazon-clone/＜new-branch＞ /index.html');
+      const html = await response.text();
+      res.send(html);
+    } catch (error) {
+      res.status(500).send('Error retrieving the HTML file.');
+    }
+  });
 
 app.use("/Account",require("./LoginANdCreateaccount"))
 app.use("/Cart",require("./Cart"))
