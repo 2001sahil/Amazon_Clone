@@ -5,7 +5,7 @@ const path=require('path')
 const port=8000
 app.use(express.json())
 app.use(cors())
-const fetch = require('node-fetch');
+// const fetch = require('node-fetch');
 
 
 
