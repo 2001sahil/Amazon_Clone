@@ -1,11 +1,17 @@
 
-const express=require("express")
-const user=require("./loginschema")
-const { body, validationResult } = require('express-validator');
-const bcrypt = require('bcryptjs');
+// const express=require("express")
+import express from 'express'
+import user from './loginschema.js'
+import {body,validationResult} from 'express-validator'
+import bcrypt from 'bcryptjs'
+import jwt from 'jsonwebtoken'
+import { fetuser } from './middleware/fetuser.js'
+// const user=require("./loginschema")
+// const { body, validationResult } = require('express-validator');
+// const jwt = require('jsonwebtoken');
+// const bcrypt = require('bcryptjs');
 const router=express.Router()
-const jwt = require('jsonwebtoken');
-const { fetuser } = require("./middleware/fetuser");
+// const { fetuser } = require("./middleware/fetuser");
 const sec="navjanjdnavjnajnjv"
 router.post("/",
     body('Name').isString(),
@@ -58,4 +64,5 @@ router.post("/getuser",fetuser,async (req,res)=>{
   const data=await user.findOne({_id:(req.id)})
   res.send(data)
 })
-module.exports=router
+// module.exports=router
+export default router

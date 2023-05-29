@@ -1,7 +1,10 @@
-const express=require("express")
-const userschema=require("./CartSchema")
+// const express=require("express")
+import express from 'express'
+// const userschema=require("./CartSchema")
+import userschema from './CartSchema.js'
+import { fetuser } from './middleware/fetuser.js'
 const router=express.Router()
-const { fetuser } = require("./middleware/fetuser");
+// const { fetuser } = require("./middleware/fetuser");
 router.get("/getitem",fetuser,async (req,res)=>{
     try {
         const notes=await userschema.find({user:req.id})
@@ -58,4 +61,5 @@ router.put("/update:id",fetuser,async (req,res)=>{
 })
 
 
-module.exports=router
+// module.exports=router
+export default router

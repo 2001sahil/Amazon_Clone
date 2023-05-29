@@ -1,4 +1,5 @@
-mongoose=require("mongoose")
+// mongoose=require("mongoose")
+import mongoose from 'mongoose'
 mongoose.set('strictQuery', true);
 const mongoDB="mongodb+srv://shootersahil20:Sahil123@cluster0.td0y3ap.mongodb.net/mernstack?retryWrites=true&w=majority"
 
@@ -15,6 +16,7 @@ mongoose.connect(mongoDB,{
 })
 
 )}
-module.exports={Mongo}
+// module.exports={Mongo}
+export default {Mongo}
 
 

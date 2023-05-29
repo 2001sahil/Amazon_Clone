@@ -1,4 +1,5 @@
-const mongose=require("mongoose")
+// const mongose=require("mongoose")
+import mongose from 'mongoose'
 
 const data=new mongose.Schema({
     user:{
@@ -27,4 +28,5 @@ const data=new mongose.Schema({
 })
 const User = mongose.model("Notes", data);
 
-module.exports=User
+// module.exports=User
+export default User

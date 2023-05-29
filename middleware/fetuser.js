@@ -1,4 +1,5 @@
-const jwt = require('jsonwebtoken');
+// const jwt = require('jsonwebtoken');
+import jwt from 'jsonwebtoken'
 const sec="navjanjdnavjnajnjv"
 const fetuser=(req,res,next)=>{
     const token=req.header("auth")
@@ -13,4 +14,5 @@ const fetuser=(req,res,next)=>{
     req.id=com.query.id
     next()
 }
-module.exports={fetuser}
+// module.exports={fetuser}
+export {fetuser}
